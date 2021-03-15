@@ -1,0 +1,6 @@
+﻿  common.cpp
+  test.cpp
+D:\Zee\MyStudy\Graphics\OpenGL\Common\test.cpp(34,21): error C2131: 식이 상수로 계산되지 않았습니다.
+D:\Zee\MyStudy\Graphics\OpenGL\Common\common.h(67,96): message : 멤버가 정의되지 않은 동적 유형 'zee::common_base<d>'의 개체의 멤버에 액세스하려고 하여 오류가 발생했습니다.
+D:\Zee\MyStudy\Graphics\OpenGL\Common\common.h(67,96): message : 'd::data' 사용량 참조
+  코드를 생성하고 있습니다...
