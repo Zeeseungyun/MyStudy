@@ -1,4 +1,4 @@
-# [`품사`(品(물건 품)詞(글, 말 사)/Word class)](https://dic.daum.net/word/view.do?wordid=kkw000280267&q=%ED%92%88%EC%82%AC&supid=kku000357778): 
+# [``품사``(品(물건 품)詞(글, 말 사)/Word class)](https://dic.daum.net/word/view.do?wordid=kkw000280267&q=%ED%92%88%EC%82%AC&supid=kku000357778): 
 `어떤 언어의 단어들`을 그 `의미, 형식, 기능에 따라 분류한` 것.
 ## - `체언`(體(몸 체)言(말씀 언)): 
 문장에서 조사의 도움을 받아 주체의 구실을 하는 단어
