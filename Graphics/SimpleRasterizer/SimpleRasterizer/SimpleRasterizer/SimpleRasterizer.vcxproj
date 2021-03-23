@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -142,9 +143,18 @@
     <ClCompile Include="ApplicationRasterizer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rasterizing.cpp" />
+    <ClCompile Include="imagebuffer.cpp" />
+    <ClCompile Include="base.cpp" />
+    <ClCompile Include="win32_helper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Rasterizing.h" />
+    <ClInclude Include="ApplicationRasterizer.h" />
+    <ClInclude Include="imagebuffer.h" />
+    <ClInclude Include="base.h" />
+    <ClInclude Include="point.h" />
+    <ClInclude Include="base_private.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="win32_helper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

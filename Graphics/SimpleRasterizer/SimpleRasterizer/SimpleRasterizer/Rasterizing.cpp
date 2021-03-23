@@ -1,4 +1,4 @@
-#include "Rasterizing.h"
+#include "ApplicationRasterizer.h"
 
 void ApplicationRasterizer::DrawLine_DDA(POINT start_pt, POINT end_pt, COLORREF color)
 {

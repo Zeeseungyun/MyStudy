@@ -1,4 +1,6 @@
-#include "Rasterizing.h"
+#include "ApplicationRasterizer.h"
+#include "win32_helper.h"
+
 extern HINSTANCE g_hInst;
 extern LPCTSTR lpszClass;
 template<typename HandleT>
@@ -7,24 +9,13 @@ HandleT MySelectObject(HDC hdc, HandleT t)
 	return (HandleT)SelectObject(hdc, (HandleT)t);
 }
 
-void ApplicationRasterizer::CreateBackBuffer(int x, int y)
+void ApplicationRasterizer::create_back_buffer(zee::uint32 width, zee::uint32 height)
 {
-	if (backDC)
-	{
-		DeleteObject(MySelectObject(backDC, old_backbitmap));
-		old_backbitmap = NULL;
-		DeleteDC(backDC);
-		backDC = NULL;
-		CreateBackBuffer(x, y);
-	}
-	else
-	{
-		HDC temphDC = GetDC(MyhWnd);
-		backDC = CreateCompatibleDC(temphDC);
-		HBITMAP newBITMAP = CreateCompatibleBitmap(temphDC, x, y);
-		old_backbitmap = MySelectObject(backDC, newBITMAP);
-		ReleaseDC(MyhWnd, temphDC);
-	}
+	img_buffer.create((zee::uint32)width, (zee::uint32)height);
+}
+
+void ApplicationRasterizer::create_back_buffer() {
+	create_back_buffer(width, height);
 }
 
 HWND ApplicationRasterizer::CreateAppWindow(int x, int y, int width, int height)
@@ -59,21 +50,14 @@ HWND ApplicationRasterizer::CreateAppWindow_Impl()
 		NULL, (HMENU)NULL, g_hInst, NULL);
 
 	pen = CreatePen(PS_SOLID, this->grid_thickness, 0);
-	RECT ClientRect;
-	GetClientRect(MyhWnd, &ClientRect);
-	CreateBackBuffer(ClientRect.right, ClientRect.bottom);
 	return MyhWnd;
 }
 
 void ApplicationRasterizer::OnPaint(UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	BeginPlay();
-	RECT ClientRect;
-	GetClientRect(MyhWnd, &ClientRect);
-	FillRect(backDC, &ClientRect, (HBRUSH)GetStockObject(WHITE_BRUSH));
-
-	PAINTSTRUCT paint_struct; 
-	HDC realDC = BeginPaint(MyhWnd, &paint_struct);
+	img_buffer.fill();
+	HDC backDC = (HDC)img_buffer.get_dc();
 
 	HBRUSH old_brush = (HBRUSH)SelectObject(backDC, GetStockObject(DC_BRUSH));
 
@@ -121,11 +105,15 @@ void ApplicationRasterizer::OnPaint(UINT iMessage, WPARAM wParam, LPARAM lParam)
 			DrawLine(backDC, start_pt, end_pt);
 		}
 	}
-
+	
 	SelectObject(backDC, old_pen);
-	BitBlt(realDC, 0, 0, ClientRect.right, ClientRect.bottom, backDC, 0, 0, SRCCOPY);
+
+	PAINTSTRUCT paint_struct;
+	HDC realDC = BeginPaint(MyhWnd, &paint_struct);
+	BitBlt(realDC, 0, 0, img_buffer.width(), img_buffer.height(), backDC, 0, 0, SRCCOPY);
 	EndPaint(MyhWnd, &paint_struct);
 }
+
 
 void ApplicationRasterizer::DrawLine(HDC dc, POINT from, POINT to)
 {
