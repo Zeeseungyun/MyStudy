@@ -18,13 +18,13 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ApplicationRasterizer.cpp">
+    <ClCompile Include="application.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Rasterizing.cpp">
+    <ClCompile Include="rasterizer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="imagebuffer.cpp">
+    <ClCompile Include="device_context.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="base.cpp">
@@ -33,12 +33,15 @@
     <ClCompile Include="win32_helper.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="brush.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ApplicationRasterizer.h">
+    <ClInclude Include="application.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="imagebuffer.h">
+    <ClInclude Include="device_context.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="base.h">
@@ -54,6 +57,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="win32_helper.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="brush.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

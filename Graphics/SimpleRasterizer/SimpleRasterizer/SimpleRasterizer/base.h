@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <cfloat>
 #include <numeric>
+#include <exception>
+#include <variant>
 
 namespace zee {
 	typedef void* handle_t;
@@ -25,6 +27,14 @@ namespace zee {
 		return ((color_t)(((uint8)(r) | ((uint16)((uint8)(g)) << 8)) | (((uint32)(uint8)(b)) << 16)));
 	}
 
+	enum class render_handle_type : uint8 {
+		pen,
+		brush,
+		bitmap,
+		font,
+		count,
+	};
+
 namespace colors {
 	constexpr color_t red	= make_color(255, 0, 0);
 	constexpr color_t green = make_color(0, 255, 0);
@@ -33,4 +43,4 @@ namespace colors {
 	constexpr color_t white = make_color(255, 255, 255);
 }//namespace colors 
 
-} //namespace zee 
+}//namespace zee 

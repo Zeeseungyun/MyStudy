@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleRasterizer", "SimpleRasterizer\SimpleRasterizer.vcxproj", "{65A187E1-6669-4D46-9257-82CDCD09F14A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{1097DD8F-0390-46CB-A341-E9BB2847B769}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{65A187E1-6669-4D46-9257-82CDCD09F14A}.Release|x64.Build.0 = Release|x64
 		{65A187E1-6669-4D46-9257-82CDCD09F14A}.Release|x86.ActiveCfg = Release|Win32
 		{65A187E1-6669-4D46-9257-82CDCD09F14A}.Release|x86.Build.0 = Release|Win32
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Debug|x64.ActiveCfg = Debug|x64
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Debug|x64.Build.0 = Debug|x64
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Debug|x86.ActiveCfg = Debug|Win32
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Debug|x86.Build.0 = Debug|Win32
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Release|x64.ActiveCfg = Release|x64
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Release|x64.Build.0 = Release|x64
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Release|x86.ActiveCfg = Release|Win32
+		{1097DD8F-0390-46CB-A341-E9BB2847B769}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

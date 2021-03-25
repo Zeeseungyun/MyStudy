@@ -1,18 +1,44 @@
 #include "win32_helper.h"
+namespace zee {
 
-bool is_valid_rect(const RECT& rc) {
-	return rc.left <= rc.right
-		&& rc.left <= rc.bottom;
-}
+	rect_t& rect_t::operator+=(const RECT& rc) noexcept {
+		return *this = *this + rc;
+	}
 
-zee::uint32 rect_width(const RECT& rc) {
-	return rc.right - rc.left;
-}
+	rect_t& rect_t::operator-=(const RECT& rc) noexcept {
+		return *this = *this - rc; 
+	}
 
-zee::uint32 rect_height(const RECT& rc) {
-	return rc.bottom - rc.top;
-}
+	rect_t& rect_t::operator*=(LONG s) noexcept {
+		return *this = *this * s;
+	}
 
-RECT make_rect(zee::uint32 width, zee::uint32 height) {
-	return RECT { 0, 0, (LONG)width, (LONG)height };
-}
+	rect_t& rect_t::operator/=(LONG s) {
+		return *this = *this / s;
+	}
+
+	point_t& point_t::operator+=(const POINT& pt) noexcept {
+		return *this = *this + pt;
+	}
+
+	point_t& point_t::operator-=(const POINT& pt) noexcept {
+		return *this = *this - pt;
+	}
+
+	point_t& point_t::operator*=(LONG s) noexcept {
+		return *this = *this * s;
+	}
+
+	point_t& point_t::operator/=(LONG s) {
+		return *this = *this / s;
+	}
+
+	int32 rect_t::width() const noexcept {
+		return zee::width(*this);
+	}
+
+	int32 rect_t::height() const noexcept {
+		return zee::height(*this);
+	}
+
+}//namespace zee 
