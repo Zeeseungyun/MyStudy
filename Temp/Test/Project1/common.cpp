@@ -1,4 +1,6 @@
 #include <iostream>
+#include <memory>
+#include <functional>
 
 template<size_t StrIdx, size_t SourceSize>
 struct name_buffer : private name_buffer<StrIdx - 1, SourceSize> {
@@ -93,15 +95,58 @@ int myprintf(const char* format, T... _Val)
 	::printf(format, sizeof... (_Val), _Val...);
 	return sizeof... (_Val);
 }
+
 #include <vector>
-struct A {
-	A(int, int) { std::cout << "int,int ctor\n"; }
-	A(const char*, double){ std::cout << "const char*,double ctor\n"; }
+class A 
+{
+public:
+	int value;
+	const char* str;
+
+	auto func() {
+		std::cout << " bound " << (std::size_t)this;
+		return [this]() {
+			this->execute();
+		};
+	}
+
+	void execute() {
+		std::cout << " executed. " << (std::size_t)this;
+		std::cout << " value: " << value << ", str:" << str;
+		std::cout << std::endl;
+	}
+
+	~A() {
+		std::cout << "dtor\n";
+	}
 };
+
+class UTest
+{
+
+public:
+	A temp;
+};
+
+auto funcdd() {
+	A temp;
+	temp.value = 20;
+	temp.str = "hi";
+	return temp.func();
+}
+
 int main() {
-	myprintf("%d %s, %d", "adf", 1);
-	std::vector<A> v;
-	v.emplace_back(1, 1);
-	v.emplace_back("",0.0);
+	std::function<void()> deletate;
+	{
+		A* temp = new A();
+		temp->value = 20;
+		temp->str = "hi";
+		deletate = temp->func();
+	}
+	{
+		int aa;
+		deletate();
+	}
 	return 0;
 }
+
