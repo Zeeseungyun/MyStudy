@@ -145,6 +145,7 @@
     <ClCompile Include="bitmap.cpp" />
     <ClCompile Include="brush.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="memory.cpp" />
     <ClCompile Include="rasterizer.cpp" />
     <ClCompile Include="device_context.cpp" />
     <ClCompile Include="base.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="brush.h" />
     <ClInclude Include="device_context.h" />
     <ClInclude Include="base.h" />
+    <ClInclude Include="memory.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="base_private.h" />
     <ClInclude Include="stdafx.h" />
