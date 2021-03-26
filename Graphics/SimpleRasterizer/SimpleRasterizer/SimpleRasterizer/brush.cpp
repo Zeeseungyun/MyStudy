@@ -2,15 +2,18 @@
 #include "stdafx.h"
 
 namespace zee {
-	void swap(brush& l, brush& r) {
+	void swap(brush& l, brush& r) noexcept {
 		std::swap(l.handle, r.handle);
 	}
 
-	brush create_solid_brush(color_t color) {
-		brush ret;
-		ret.handle = CreateSolidBrush(color);
-		
+	std::shared_ptr<brush> create_solid_brush(color_t color) noexcept {
+		std::shared_ptr<brush> ret = std::make_shared<brush>();
+		ret->handle = CreateSolidBrush(color);
 		return ret;
+	}
+
+	std::shared_ptr<brush> create_pattern_brush(bitmap color) {
+		return brush();
 	}
 
 	brush::brush(brush&& other) noexcept : brush() {

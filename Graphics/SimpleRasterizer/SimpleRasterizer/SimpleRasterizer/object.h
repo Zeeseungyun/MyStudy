@@ -1,8 +1,16 @@
 #pragma once
 #include "base.h"
+#include <memory>
 
 namespace zee {
-	class object {
+	class object;
+
+	class clonable {
+	public:
+		virtual std::shared_ptr<object> clone() const = 0;
+	};
+
+	class object : public std::enable_shared_from_this<object> {
 	protected:
 		object() : handle(nullptr) {
 
@@ -24,4 +32,5 @@ namespace zee {
 	protected:
 		handle_t handle;
 	};
+	
 }//namespace zee 

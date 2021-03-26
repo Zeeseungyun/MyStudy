@@ -18,7 +18,7 @@ namespace zee {
 		device_context& operator=(device_context&& other) noexcept;
 
 		bool create(uint32 width, uint32 height, color_t clear_color = colors::black);
-		void clear() final;
+		virtual void clear() override final;
 
 		uint32 width() const { return width_; }
 		uint32 height() const { return height_; }

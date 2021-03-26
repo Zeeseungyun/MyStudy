@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="application.cpp" />
+    <ClCompile Include="bitmap.cpp" />
     <ClCompile Include="brush.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rasterizer.cpp" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="application.h" />
+    <ClInclude Include="bitmap.h" />
     <ClInclude Include="brush.h" />
     <ClInclude Include="device_context.h" />
     <ClInclude Include="base.h" />
